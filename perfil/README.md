@@ -66,7 +66,9 @@ Dentro de `index.html`, justo encima de `<ul class="cards">`, hay un comentario 
 1. `data-carrera="<slug>"` en tu `<li class="card">` (minusculas, sin tildes, con guiones).
 2. `<span class="tag">Etiqueta</span>` dentro de `.card__meta`.
 
-Los chips de filtro de la pagina siguen siendo los originales (Software, Redes, Datos,
-Ciberseguridad); un rol del catalogo se encuentra con el buscador. Si quieres que tambien
-aparezca como filtro, agrega un `<button class="chip" data-filtro="<slug>">` en la barra.
+Cada rol del catalogo tiene ya su propio chip en la barra de filtros (los 4 originales
+—Software, Redes, Datos, Ciberseguridad— mas los 42 del catalogo, 47 botones en total).
+Mientras nadie use un rol, su filtro muestra 0 perfiles; en cuanto pongas el slug en tu
+tarjeta, apareces al tocar ese chip. El slug del `data-filtro` y el del `data-carrera`
+deben ser identicos.
 
