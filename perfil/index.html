@@ -11,6 +11,70 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Estilos exclusivos de la tarjeta 19 (no afectan a las demas) -->
+  <style>
+    .card--oro {
+      position: relative;
+      border: 2px solid #d4af37;
+      background-color: var(--color-surface);
+      background-image:
+        repeating-linear-gradient(135deg, rgba(212, 175, 55, .07) 0 2px, transparent 2px 7px),
+        linear-gradient(160deg, rgba(212, 175, 55, .22), rgba(212, 175, 55, .04) 45%, rgba(255, 219, 140, .18));
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, .16), 0 12px 32px rgba(212, 175, 55, .26);
+      animation: fade-up 500ms both, oro-halo 3.2s ease-in-out infinite;
+    }
+    .card--oro::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: linear-gradient(115deg,
+                  transparent 38%, rgba(255, 241, 190, .45) 48%,
+                  rgba(255, 255, 255, .65) 52%, transparent 62%);
+      background-size: 260% 100%;
+      background-position: 160% 0;
+      animation: oro-brillo 4s ease-in-out infinite;
+    }
+    /* Al pasar el mouse: el destello recorre mas rapido y el marco se enciende */
+    .card--oro:hover,
+    .card--oro:focus-within {
+      border-color: #ffe08a;
+      box-shadow: 0 0 0 8px rgba(212, 175, 55, .30), 0 20px 48px rgba(212, 175, 55, .50);
+    }
+    .card--oro:hover::after,
+    .card--oro:focus-within::after {
+      animation-duration: 1.1s;
+      background-image: linear-gradient(115deg,
+                        transparent 32%, rgba(255, 241, 190, .60) 46%,
+                        rgba(255, 255, 255, .85) 52%, transparent 66%);
+    }
+    .card--oro .card__name { color: #f0d27a; }
+    .card--oro .card__code { background: rgba(212, 175, 55, .85); color: #2a2000; }
+    .card--oro .tag {
+      border-color: rgba(212, 175, 55, .55);
+      background: rgba(212, 175, 55, .14);
+      color: #e8c766;
+    }
+    /* El halo se anima con filter para no chocar con el box-shadow del hover */
+    @keyframes oro-halo {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, .30)); }
+      50%      { filter: drop-shadow(0 0 15px rgba(212, 175, 55, .60)); }
+    }
+    @keyframes oro-brillo {
+      0%       { background-position: 160% 0; }
+      55%, 100% { background-position: -60% 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card--oro,
+      .card--oro::after,
+      .card--oro:hover,
+      .card--oro:hover::after,
+      .card--oro:focus-within,
+      .card--oro:focus-within::after { animation: none; }
+    }
+  </style>
 </head>
 
 <body>
@@ -532,9 +596,8 @@
               </div>
             </article>
           </li>
-          <li class="card" data-carrera="ingeniero-de-prompts" data-nombre="renzo raul leon fernandez"
-              style="animation-delay: 360ms; border: 2px solid #d4af37;
-                     box-shadow: 0 0 0 4px rgba(212, 175, 55, .18), 0 12px 32px rgba(212, 175, 55, .28);">
+          <li class="card card--oro" data-carrera="ingeniero-de-prompts" data-nombre="renzo raul leon fernandez"
+              style="animation-delay: 360ms">
             <article>
               <div class="card__media">
                 <img class="card__photo" src="assets/img/estudiantes/19-renzo-leon.jpg"
