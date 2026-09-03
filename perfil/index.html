@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Directorio de perfiles: 20 estudiantes del curso de Construccion de Producto de Software - Semana 03.">
+  <meta name="author" content="Equipo CPS - Semana 03">
+  <meta name="theme-color" content="#4f46e5">
+
+  <title>Perfiles de Estudiantes | CPS Semana 03</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <!-- Accesibilidad: salto directo al contenido -->
+  <a class="skip-link" href="#estudiantes">Saltar al contenido principal</a>
+
+  <!-- ============ CABECERA ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#inicio" aria-label="Inicio - Perfiles de Estudiantes">
+        <span class="brand__mark" aria-hidden="true">CPS</span>
+        <span class="brand__text">
+          Perfiles
+          <small>Promocion 2026</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav-principal" aria-label="Navegacion principal">
+        <a class="nav__link" href="#inicio">Inicio</a>
+        <a class="nav__link" href="#estudiantes">Estudiantes</a>
+        <a class="nav__link" href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button"
+                aria-label="Cambiar tema claro u oscuro" aria-pressed="false">
+          <span aria-hidden="true" data-theme-icon>&#9789;</span>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button"
+                aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="nav-principal">
+          <span aria-hidden="true">&#9776;</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="container hero__grid">
+        <div>
+          <p class="badge"><span aria-hidden="true">&#9679;</span> Semana 03 &middot; Proyecto de aula</p>
+          <h1 class="hero__title" id="hero-titulo">
+            Conoce a los <span>20 estudiantes</span> de nuestra promocion
+          </h1>
+          <p class="hero__lead">
+            Un directorio visual con el nombre, los apellidos y la fotografia de cada
+            integrante del curso. Busca por nombre o filtra por especialidad para
+            encontrar rapidamente a quien necesitas.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#estudiantes">
+              Ver estudiantes <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="btn btn--ghost" href="#contacto">Contactar al equipo</a>
+          </div>
+        </div>
+
+        <aside class="hero__stats" aria-label="Cifras del grupo">
+          <div class="stat">
+            <span class="stat__value">20</span>
+            <span class="stat__label">Estudiantes</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">4</span>
+            <span class="stat__label">Especialidades</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">03</span>
+            <span class="stat__label">Semana</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ ESTUDIANTES ============ -->
+    <section class="section" id="estudiantes" aria-labelledby="estudiantes-titulo">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <h2 class="section__title" id="estudiantes-titulo">Nuestros estudiantes</h2>
+            <p class="section__subtitle">
+              Mostrando <strong id="contador">20</strong> de 20 perfiles
+            </p>
+          </div>
+        </div>
+
+        <!-- Barra de busqueda y filtros -->
+        <div class="toolbar">
+          <div class="search">
+            <span class="search__icon" aria-hidden="true">&#128269;</span>
+            <label class="visually-hidden" for="buscador">Buscar estudiante por nombre o apellido</label>
+            <input class="search__input" id="buscador" type="search"
+                   placeholder="Buscar por nombre o apellido..." autocomplete="off">
+          </div>
+
+          <div class="filters" role="group" aria-label="Filtrar por especialidad">
+            <button class="chip" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button class="chip" type="button" data-filtro="software" aria-pressed="false">Software</button>
+            <button class="chip" type="button" data-filtro="redes" aria-pressed="false">Redes</button>
+            <button class="chip" type="button" data-filtro="datos" aria-pressed="false">Datos</button>
+            <button class="chip" type="button" data-filtro="ciberseguridad" aria-pressed="false">Ciberseguridad</button>
+          </div>
+        </div>
+
+        <!-- Grilla de 20 tarjetas -->
+        <ul class="cards" id="grilla-estudiantes">
+          <li class="card" data-carrera="software" data-nombre="ana lucia quispe mamani" style="animation-delay: 0ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/01-ana-lucia-quispe.svg"
+                     alt="Fotografia de Ana Lucia Quispe Mamani" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-01</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Ana Lucia</h3>
+                <p class="card__lastname">Quispe Mamani</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="redes" data-nombre="diego ramirez torres" style="animation-delay: 45ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/02-diego-ramirez.svg"
+                     alt="Fotografia de Diego Ramirez Torres" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-02</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Diego</h3>
+                <p class="card__lastname">Ramirez Torres</p>
+                <div class="card__meta">
+                  <span class="tag">Redes</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="datos" data-nombre="valeria chavez rojas" style="animation-delay: 90ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/03-valeria-chavez.svg"
+                     alt="Fotografia de Valeria Chavez Rojas" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-03</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Valeria</h3>
+                <p class="card__lastname">Chavez Rojas</p>
+                <div class="card__meta">
+                  <span class="tag">Datos</span>
+                  <span class="tag tag--soft">Ciclo II</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="ciberseguridad" data-nombre="mateo fernandez salas" style="animation-delay: 135ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/04-mateo-fernandez.svg"
+                     alt="Fotografia de Mateo Fernandez Salas" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-04</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Mateo</h3>
+                <p class="card__lastname">Fernandez Salas</p>
+                <div class="card__meta">
+                  <span class="tag">Ciberseguridad</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="software" data-nombre="camila huaman vargas" style="animation-delay: 180ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/05-camila-huaman.svg"
+                     alt="Fotografia de Camila Huaman Vargas" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-05</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Camila</h3>
+                <p class="card__lastname">Huaman Vargas</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="redes" data-nombre="sebastian paredes loayza" style="animation-delay: 225ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/06-sebastian-paredes.svg"
+                     alt="Fotografia de Sebastian Paredes Loayza" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-06</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Sebastian</h3>
+                <p class="card__lastname">Paredes Loayza</p>
+                <div class="card__meta">
+                  <span class="tag">Redes</span>
+                  <span class="tag tag--soft">Ciclo II</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="datos" data-nombre="fernanda aguilar nunez" style="animation-delay: 270ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/07-fernanda-aguilar.svg"
+                     alt="Fotografia de Fernanda Aguilar Nunez" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-07</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Fernanda</h3>
+                <p class="card__lastname">Aguilar Nunez</p>
+                <div class="card__meta">
+                  <span class="tag">Datos</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="software" data-nombre="joaquin medina castro" style="animation-delay: 315ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/08-joaquin-medina.svg"
+                     alt="Fotografia de Joaquin Medina Castro" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-08</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Joaquin</h3>
+                <p class="card__lastname">Medina Castro</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="ciberseguridad" data-nombre="renata ponce delgado" style="animation-delay: 360ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/09-renata-ponce.svg"
+                     alt="Fotografia de Renata Ponce Delgado" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-09</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Renata</h3>
+                <p class="card__lastname">Ponce Delgado</p>
+                <div class="card__meta">
+                  <span class="tag">Ciberseguridad</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="redes" data-nombre="adrian suarez bellido" style="animation-delay: 405ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/10-adrian-suarez.svg"
+                     alt="Fotografia de Adrian Suarez Bellido" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-10</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Adrian</h3>
+                <p class="card__lastname">Suarez Bellido</p>
+                <div class="card__meta">
+                  <span class="tag">Redes</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="software" data-nombre="micaela ortiz sanchez" style="animation-delay: 0ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/11-micaela-ortiz.svg"
+                     alt="Fotografia de Micaela Ortiz Sanchez" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-11</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Micaela</h3>
+                <p class="card__lastname">Ortiz Sanchez</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo II</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="datos" data-nombre="rodrigo cabrera ríos" style="animation-delay: 45ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/12-rodrigo-cabrera.svg"
+                     alt="Fotografia de Rodrigo Cabrera Ríos" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-12</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Rodrigo</h3>
+                <p class="card__lastname">Cabrera Ríos</p>
+                <div class="card__meta">
+                  <span class="tag">Datos</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="software" data-nombre="alejandra palomino vega" style="animation-delay: 90ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/13-alejandra-palomino.svg"
+                     alt="Fotografia de Alejandra Palomino Vega" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-13</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Alejandra</h3>
+                <p class="card__lastname">Palomino Vega</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="ciberseguridad" data-nombre="gabriel espinoza luna" style="animation-delay: 135ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/14-gabriel-espinoza.svg"
+                     alt="Fotografia de Gabriel Espinoza Luna" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-14</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Gabriel</h3>
+                <p class="card__lastname">Espinoza Luna</p>
+                <div class="card__meta">
+                  <span class="tag">Ciberseguridad</span>
+                  <span class="tag tag--soft">Ciclo II</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="redes" data-nombre="daniela miranda zapata" style="animation-delay: 180ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/15-daniela-miranda.svg"
+                     alt="Fotografia de Daniela Miranda Zapata" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-15</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Daniela</h3>
+                <p class="card__lastname">Miranda Zapata</p>
+                <div class="card__meta">
+                  <span class="tag">Redes</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="software" data-nombre="nicolas guerrero farfan" style="animation-delay: 225ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/16-nicolas-guerrero.svg"
+                     alt="Fotografia de Nicolas Guerrero Farfan" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-16</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Nicolas</h3>
+                <p class="card__lastname">Guerrero Farfan</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="datos" data-nombre="isabella reyes cordova" style="animation-delay: 270ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/17-isabella-reyes.svg"
+                     alt="Fotografia de Isabella Reyes Cordova" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-17</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Isabella</h3>
+                <p class="card__lastname">Reyes Cordova</p>
+                <div class="card__meta">
+                  <span class="tag">Datos</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="redes" data-nombre="emilio navarro alvarez" style="animation-delay: 315ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/18-emilio-navarro.svg"
+                     alt="Fotografia de Emilio Navarro Alvarez" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-18</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Emilio</h3>
+                <p class="card__lastname">Navarro Alvarez</p>
+                <div class="card__meta">
+                  <span class="tag">Redes</span>
+                  <span class="tag tag--soft">Ciclo II</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="ciberseguridad" data-nombre="antonella bravo cespedes" style="animation-delay: 360ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/19-antonella-bravo.svg"
+                     alt="Fotografia de Antonella Bravo Cespedes" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-19</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Antonella</h3>
+                <p class="card__lastname">Bravo Cespedes</p>
+                <div class="card__meta">
+                  <span class="tag">Ciberseguridad</span>
+                  <span class="tag tag--soft">Ciclo III</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="software" data-nombre="thiago villanueva soto" style="animation-delay: 405ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/20-thiago-villanueva.svg"
+                     alt="Fotografia de Thiago Villanueva Soto" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-20</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Thiago</h3>
+                <p class="card__lastname">Villanueva Soto</p>
+                <div class="card__meta">
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <p class="empty-state" id="sin-resultados" role="status">
+          No se encontraron estudiantes con esa busqueda. Intenta con otro nombre.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE DE PAGINA ============ -->
+  <footer class="site-footer" id="contacto">
+    <div class="container site-footer__inner">
+      <p style="margin:0">&copy; 2026 Curso CPS &middot; Semana 03 &mdash; Proyecto academico</p>
+      <nav class="site-footer__links" aria-label="Enlaces del pie de pagina">
+        <a href="#inicio">Inicio</a>
+        <a href="#estudiantes">Estudiantes</a>
+        <a href="mailto:equipo.cps@tecsup.edu.pe">Escribenos</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

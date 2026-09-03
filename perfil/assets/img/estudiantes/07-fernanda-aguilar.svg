@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Foto de perfil FA">
+  <defs>
+    <linearGradient id="g07" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#g07)"/>
+  <circle cx="320" cy="80" r="130" fill="#ffffff" opacity=".08"/>
+  <g fill="#ffffff" opacity=".16">
+    <circle cx="200" cy="168" r="62"/>
+    <path d="M200 246c-62 0-112 42-112 94v60h224v-60c0-52-50-94-112-94z"/>
+  </g>
+  <text x="200" y="228" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif"
+        font-size="132" font-weight="700" fill="#ffffff" opacity=".95">FA</text>
+</svg>
