@@ -57,3 +57,16 @@ python -m http.server 8000
 - Tema claro/oscuro con persistencia en `localStorage` y respeto a la preferencia del sistema.
 - Búsqueda por nombre/apellido (ignora tildes) y filtros por especialidad.
 - Carga diferida de imágenes (`loading="lazy"`) y soporte de `prefers-reduced-motion`.
+
+## Catalogo de roles
+
+Dentro de `index.html`, justo encima de `<ul class="cards">`, hay un comentario con
+**42 roles** para elegir. Para usar uno en tu tarjeta cambia dos cosas:
+
+1. `data-carrera="<slug>"` en tu `<li class="card">` (minusculas, sin tildes, con guiones).
+2. `<span class="tag">Etiqueta</span>` dentro de `.card__meta`.
+
+Los chips de filtro de la pagina siguen siendo los originales (Software, Redes, Datos,
+Ciberseguridad); un rol del catalogo se encuentra con el buscador. Si quieres que tambien
+aparezca como filtro, agrega un `<button class="chip" data-filtro="<slug>">` en la barra.
+
