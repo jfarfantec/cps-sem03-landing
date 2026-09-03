@@ -11,6 +11,76 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Estilos exclusivos de la tarjeta 19 (no afectan a las demas) -->
+  <style>
+    .card--oro {
+      position: relative;
+      border: 2px solid #d4af37;
+      background-color: var(--color-surface);
+      background-image:
+        repeating-linear-gradient(135deg, rgba(212, 175, 55, .07) 0 2px, transparent 2px 7px),
+        linear-gradient(160deg, rgba(212, 175, 55, .22), rgba(212, 175, 55, .04) 45%, rgba(255, 219, 140, .18));
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, .16), 0 12px 32px rgba(212, 175, 55, .26);
+      animation: fade-up 500ms both, oro-halo 3.2s ease-in-out infinite;
+    }
+    .card--oro::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      background: linear-gradient(115deg,
+                  transparent 38%, rgba(255, 241, 190, .45) 48%,
+                  rgba(255, 255, 255, .65) 52%, transparent 62%);
+      background-size: 260% 100%;
+      background-position: 160% 0;
+      animation: oro-brillo 4s ease-in-out infinite;
+    }
+    /* Al pasar el mouse: el destello recorre mas rapido y el marco se enciende */
+    .card--oro:hover,
+    .card--oro:focus-within {
+      border-color: #ffe08a;
+      box-shadow: 0 0 0 8px rgba(212, 175, 55, .30), 0 20px 48px rgba(212, 175, 55, .50);
+    }
+    .card--oro:hover::after,
+    .card--oro:focus-within::after {
+      /* otro nombre de animacion = el reflejo reinicia al entrar el mouse */
+      animation: oro-reflejo 1.1s ease-in-out infinite;
+      background-image: linear-gradient(115deg,
+                        transparent 36%, rgba(255, 233, 170, .38) 46%,
+                        rgba(255, 252, 235, .72) 52%, rgba(255, 233, 170, .38) 58%,
+                        transparent 68%);
+    }
+    .card--oro .card__name { color: #f0d27a; }
+    .card--oro .card__code { background: rgba(212, 175, 55, .85); color: #2a2000; }
+    .card--oro .tag {
+      border-color: rgba(212, 175, 55, .55);
+      background: rgba(212, 175, 55, .14);
+      color: #e8c766;
+    }
+    /* El halo se anima con filter para no chocar con el box-shadow del hover */
+    @keyframes oro-halo {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(212, 175, 55, .30)); }
+      50%      { filter: drop-shadow(0 0 15px rgba(212, 175, 55, .60)); }
+    }
+    @keyframes oro-brillo {
+      0%       { background-position: 160% 0; }
+      55%, 100% { background-position: -60% 0; }
+    }
+    @keyframes oro-reflejo {
+      0%       { background-position: 160% 0; }
+      70%, 100% { background-position: -60% 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card--oro,
+      .card--oro::after,
+      .card--oro:hover,
+      .card--oro:hover::after,
+      .card--oro:focus-within,
+      .card--oro:focus-within::after { animation: none; }
+    }
+  </style>
 </head>
 
 <body>
@@ -113,58 +183,154 @@
             <button class="chip" type="button" data-filtro="redes" aria-pressed="false">Redes</button>
             <button class="chip" type="button" data-filtro="datos" aria-pressed="false">Datos</button>
             <button class="chip" type="button" data-filtro="ciberseguridad" aria-pressed="false">Ciberseguridad</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-prompts" aria-pressed="false">Ingeniero de prompts</button>
+            <button class="chip" type="button" data-filtro="desarrollador-frontend" aria-pressed="false">Desarrollador frontend</button>
+            <button class="chip" type="button" data-filtro="desarrollador-backend" aria-pressed="false">Desarrollador backend</button>
+            <button class="chip" type="button" data-filtro="desarrollador-fullstack" aria-pressed="false">Desarrollador fullstack</button>
+            <button class="chip" type="button" data-filtro="desarrollador-movil" aria-pressed="false">Desarrollador movil</button>
+            <button class="chip" type="button" data-filtro="desarrollador-de-apis" aria-pressed="false">Desarrollador de APIs</button>
+            <button class="chip" type="button" data-filtro="desarrollador-de-videojuegos" aria-pressed="false">Desarrollador de videojuegos</button>
+            <button class="chip" type="button" data-filtro="desarrollador-blockchain" aria-pressed="false">Desarrollador blockchain</button>
+            <button class="chip" type="button" data-filtro="arquitecto-de-software" aria-pressed="false">Arquitecto de software</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-datos" aria-pressed="false">Ingeniero de datos</button>
+            <button class="chip" type="button" data-filtro="cientifico-de-datos" aria-pressed="false">Cientifico de datos</button>
+            <button class="chip" type="button" data-filtro="analista-de-datos" aria-pressed="false">Analista de datos</button>
+            <button class="chip" type="button" data-filtro="especialista-en-bi" aria-pressed="false">Especialista en BI</button>
+            <button class="chip" type="button" data-filtro="administrador-de-base-de-datos" aria-pressed="false">Administrador de base de datos</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-machine-learning" aria-pressed="false">Ingeniero de machine learning</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-ia" aria-pressed="false">Ingeniero de IA</button>
+            <button class="chip" type="button" data-filtro="especialista-en-vision-computacional" aria-pressed="false">Especialista en vision computacional</button>
+            <button class="chip" type="button" data-filtro="especialista-en-nlp" aria-pressed="false">Especialista en NLP</button>
+            <button class="chip" type="button" data-filtro="ingeniero-mlops" aria-pressed="false">Ingeniero MLOps</button>
+            <button class="chip" type="button" data-filtro="ingeniero-devops" aria-pressed="false">Ingeniero DevOps</button>
+            <button class="chip" type="button" data-filtro="ingeniero-sre" aria-pressed="false">Ingeniero SRE</button>
+            <button class="chip" type="button" data-filtro="ingeniero-cloud" aria-pressed="false">Ingeniero cloud</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-integracion" aria-pressed="false">Ingeniero de integracion</button>
+            <button class="chip" type="button" data-filtro="administrador-de-redes" aria-pressed="false">Administrador de redes</button>
+            <button class="chip" type="button" data-filtro="administrador-de-sistemas" aria-pressed="false">Administrador de sistemas</button>
+            <button class="chip" type="button" data-filtro="analista-de-ciberseguridad" aria-pressed="false">Analista de ciberseguridad</button>
+            <button class="chip" type="button" data-filtro="pentester" aria-pressed="false">Pentester</button>
+            <button class="chip" type="button" data-filtro="analista-soc" aria-pressed="false">Analista SOC</button>
+            <button class="chip" type="button" data-filtro="analista-forense-digital" aria-pressed="false">Analista forense digital</button>
+            <button class="chip" type="button" data-filtro="ingeniero-qa" aria-pressed="false">Ingeniero QA</button>
+            <button class="chip" type="button" data-filtro="automatizador-de-pruebas" aria-pressed="false">Automatizador de pruebas</button>
+            <button class="chip" type="button" data-filtro="disenador-ux" aria-pressed="false">Disenador UX</button>
+            <button class="chip" type="button" data-filtro="disenador-ui" aria-pressed="false">Disenador UI</button>
+            <button class="chip" type="button" data-filtro="investigador-ux" aria-pressed="false">Investigador UX</button>
+            <button class="chip" type="button" data-filtro="product-owner" aria-pressed="false">Product owner</button>
+            <button class="chip" type="button" data-filtro="scrum-master" aria-pressed="false">Scrum master</button>
+            <button class="chip" type="button" data-filtro="jefe-de-proyecto" aria-pressed="false">Jefe de proyecto</button>
+            <button class="chip" type="button" data-filtro="analista-de-negocio" aria-pressed="false">Analista de negocio</button>
+            <button class="chip" type="button" data-filtro="analista-de-sistemas" aria-pressed="false">Analista de sistemas</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-soporte" aria-pressed="false">Ingeniero de soporte</button>
+            <button class="chip" type="button" data-filtro="ingeniero-iot" aria-pressed="false">Ingeniero IoT</button>
+            <button class="chip" type="button" data-filtro="ingeniero-de-robotica" aria-pressed="false">Ingeniero de robotica</button>
           </div>
         </div>
 
         <!-- Grilla de 20 tarjetas -->
+        <!-- ============================================================
+             CATALOGO DE ROLES (42 opciones)
+             Elige uno para TU tarjeta y usalo en dos lugares:
+               1) <li class="card" data-carrera="SLUG" ...>
+               2) <span class="tag">ETIQUETA</span>
+             El slug va en minusculas, sin tildes y con guiones.
+             Nota: la barra de filtros de arriba solo tiene los chips
+             originales; un rol nuevo se busca desde el buscador.
+
+             SLUG (data-carrera)                    ETIQUETA (<span class="tag">)
+             .....................................  ....................................
+             ingeniero-de-prompts                   Ingeniero de prompts
+             desarrollador-frontend                 Desarrollador frontend
+             desarrollador-backend                  Desarrollador backend
+             desarrollador-fullstack                Desarrollador fullstack
+             desarrollador-movil                    Desarrollador movil
+             desarrollador-de-apis                  Desarrollador de APIs
+             desarrollador-de-videojuegos           Desarrollador de videojuegos
+             desarrollador-blockchain               Desarrollador blockchain
+             arquitecto-de-software                 Arquitecto de software
+             ingeniero-de-datos                     Ingeniero de datos
+             cientifico-de-datos                    Cientifico de datos
+             analista-de-datos                      Analista de datos
+             especialista-en-bi                     Especialista en BI
+             administrador-de-base-de-datos         Administrador de base de datos
+             ingeniero-de-machine-learning          Ingeniero de machine learning
+             ingeniero-de-ia                        Ingeniero de IA
+             especialista-en-vision-computacional   Especialista en vision computacional
+             especialista-en-nlp                    Especialista en NLP
+             ingeniero-mlops                        Ingeniero MLOps
+             ingeniero-devops                       Ingeniero DevOps
+             ingeniero-sre                          Ingeniero SRE
+             ingeniero-cloud                        Ingeniero cloud
+             ingeniero-de-integracion               Ingeniero de integracion
+             administrador-de-redes                 Administrador de redes
+             administrador-de-sistemas              Administrador de sistemas
+             analista-de-ciberseguridad             Analista de ciberseguridad
+             pentester                              Pentester
+             analista-soc                           Analista SOC
+             analista-forense-digital               Analista forense digital
+             ingeniero-qa                           Ingeniero QA
+             automatizador-de-pruebas               Automatizador de pruebas
+             disenador-ux                           Disenador UX
+             disenador-ui                           Disenador UI
+             investigador-ux                        Investigador UX
+             product-owner                          Product owner
+             scrum-master                           Scrum master
+             jefe-de-proyecto                       Jefe de proyecto
+             analista-de-negocio                    Analista de negocio
+             analista-de-sistemas                   Analista de sistemas
+             ingeniero-de-soporte                   Ingeniero de soporte
+             ingeniero-iot                          Ingeniero IoT
+             ingeniero-de-robotica                  Ingeniero de robotica
+             ============================================================ -->
         <ul class="cards" id="grilla-estudiantes">
-          <li class="card" data-carrera="software" data-nombre="ana lucia quispe mamani" style="animation-delay: 0ms">
+          <li class="card" data-carrera="software" data-nombre="gael matteo la jara barboza" style="animation-delay: 0ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/01-ana-lucia-quispe.svg"
-                     alt="Fotografia de Ana Lucia Quispe Mamani" width="400" height="400" loading="lazy" decoding="async">
-                <span class="card__code">EST-2026-01</span>
-              </div>
-              <div class="card__body">
-                <h3 class="card__name">Ana Lucia</h3>
-                <p class="card__lastname">Quispe Mamani</p>
-                <div class="card__meta">
-                  <span class="tag">Software</span>
-                  <span class="tag tag--soft">Ciclo III</span>
-                </div>
-              </div>
-            </article>
-          </li>
-          <li class="card" data-carrera="redes" data-nombre="diego ramirez torres" style="animation-delay: 45ms">
-            <article>
-              <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/02-diego-ramirez.svg"
-                     alt="Fotografia de Diego Ramirez Torres" width="400" height="400" loading="lazy" decoding="async">
+                <img class="card__photo" src="assets/img/estudiantes/01-gael-lajara-barboza.svg"
+                     alt="Fotografia de Gael Matteo La Jara Barboza" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-02</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Diego</h3>
-                <p class="card__lastname">Ramirez Torres</p>
+                <h3 class="card__name">Gael Matteo</h3>
+                <p class="card__lastname">La Jara Barboza</p>
                 <div class="card__meta">
-                  <span class="tag">Redes</span>
-                  <span class="tag tag--soft">Ciclo III</span>
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
           </li>
-          <li class="card" data-carrera="datos" data-nombre="valeria chavez rojas" style="animation-delay: 90ms">
+          <li class="card" data-carrera="Software" data-nombre="carlos fernando junco santiago" style="animation-delay: 45ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/03-valeria-chavez.svg"
+                <img class="card__photo" src="assets/img/estudiantes/02-carlos-junco.jpg"
+                     alt="Fotografia de Carlos Junco" width="400" height="400" loading="lazy" decoding="async">
+                <span class="card__code">EST-2026-02</span>
+              </div>
+              <div class="card__body">
+                <h3 class="card__name">Carlos Fernando</h3>
+                <p class="card__lastname">Junco Santiago</p>
+                <div class="card__meta">
+                  <span class="tag">Desarrollo de software</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li class="card" data-carrera="datos" data-nombre="Antonio Vasquez" style="animation-delay: 90ms">
+            <article>
+              <div class="card__media">
+                <img class="card__photo" src="assets/img/estudiantes/03-antonio-vasquez.jpg"
                      alt="Fotografia de Valeria Chavez Rojas" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-03</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Valeria</h3>
-                <p class="card__lastname">Chavez Rojas</p>
+                <h3 class="card__name">Antonio</h3>
+                <p class="card__lastname">Vasquez Flores</p>
                 <div class="card__meta">
                   <span class="tag">Datos</span>
-                  <span class="tag tag--soft">Ciclo II</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
@@ -172,50 +338,51 @@
           <li class="card" data-carrera="ciberseguridad" data-nombre="mateo fernandez salas" style="animation-delay: 135ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/04-mateo-fernandez.svg"
+                <img class="card__photo" src="assets/img/estudiantes/04-juan-gutierrez.jpg"
                      alt="Fotografia de Mateo Fernandez Salas" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-04</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Mateo</h3>
-                <p class="card__lastname">Fernandez Salas</p>
+                <h3 class="card__name">Juan Diego</h3>
+                <p class="card__lastname">Gutierrez Duran</p>
                 <div class="card__meta">
-                  <span class="tag">Ciberseguridad</span>
+                  <span class="tag">BackEnd</span>
                   <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
           </li>
-          <li class="card" data-carrera="software" data-nombre="camila huaman vargas" style="animation-delay: 180ms">
+          <li class="card" data-carrera="software" data-nombre="jesus rocha bobadilla" style="animation-delay: 180ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/05-camila-huaman.svg"
+                <img class="card__photo" src="https://i.pinimg.com/originals/af/fb/b0/affbb0826a594a563ce0bbb33fd5ffba.jpg"
                      alt="Fotografia de Camila Huaman Vargas" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-05</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Camila</h3>
-                <p class="card__lastname">Huaman Vargas</p>
+                <h3 class="card__name">Jesús</h3>
+                <p class="card__lastname">Rocha Bobadilla</p>
                 <div class="card__meta">
-                  <span class="tag">Software</span>
-                  <span class="tag tag--soft">Ciclo III</span>
+                  <span class="tag">Backend</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
           </li>
-          <li class="card" data-carrera="redes" data-nombre="sebastian paredes loayza" style="animation-delay: 225ms">
+          <li class="card" data-carrera="software" data-nombre="erick gamarra mundaca" style="animation-delay: 225ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/06-sebastian-paredes.svg"
-                     alt="Fotografia de Sebastian Paredes Loayza" width="400" height="400" loading="lazy" decoding="async">
+<<<<<<< HEAD
+                 <img class="card__photo" src="assets/img/estudiantes/06-erick-gamarra.png"
+                   alt="Fotografia de Erick Gamarra Mundaca" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-06</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Sebastian</h3>
-                <p class="card__lastname">Paredes Loayza</p>
+                <h3 class="card__name">Erick</h3>
+                <p class="card__lastname">Gamarra Mundaca</p>
                 <div class="card__meta">
-                  <span class="tag">Redes</span>
-                  <span class="tag tag--soft">Ciclo II</span>
+                  <span class="tag">Software</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
@@ -240,16 +407,16 @@
           <li class="card" data-carrera="software" data-nombre="joaquin medina castro" style="animation-delay: 315ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/08-joaquin-medina.svg"
+                <img class="card__photo" src="assets/img/estudiantes/luis-maldonado.webp"
                      alt="Fotografia de Joaquin Medina Castro" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-08</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Joaquin</h3>
-                <p class="card__lastname">Medina Castro</p>
+                <h3 class="card__name">Luis Miguel</h3>
+                <p class="card__lastname">Maldonado Linares</p>
                 <div class="card__meta">
                   <span class="tag">Software</span>
-                  <span class="tag tag--soft">Ciclo III</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
@@ -417,7 +584,7 @@
           <li class="card" data-carrera="software" data-nombre="dario maza medina" style="animation-delay: 315ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/18-dario-maza.svg"
+                <img class="card__photo" src="assets/img/estudiantes/18-dario-maza.jpg"
                      alt="Fotografia de Dario Maza Medina" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-18</span>
               </div>
@@ -431,36 +598,37 @@
               </div>
             </article>
           </li>
-          <li class="card" data-carrera="ciberseguridad" data-nombre="antonella bravo cespedes" style="animation-delay: 360ms">
+          <li class="card card--oro" data-carrera="ingeniero-de-prompts" data-nombre="renzo raul leon fernandez"
+              style="animation-delay: 360ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/19-antonella-bravo.svg"
-                     alt="Fotografia de Antonella Bravo Cespedes" width="400" height="400" loading="lazy" decoding="async">
+                <img class="card__photo" src="assets/img/estudiantes/19-renzo-leon.jpg"
+                     alt="Fotografia de Renzo Raul Leon Fernandez" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-19</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Antonella</h3>
-                <p class="card__lastname">Bravo Cespedes</p>
+                <h3 class="card__name">Renzo Ra&uacute;l</h3>
+                <p class="card__lastname">L&eacute;on Fern&aacute;ndez</p>
                 <div class="card__meta">
-                  <span class="tag">Ciberseguridad</span>
-                  <span class="tag tag--soft">Ciclo III</span>
+                  <span class="tag">Ingeniero de prompts</span>
+                  <span class="tag tag--soft">Ciclo IV</span>
                 </div>
               </div>
             </article>
           </li>
-          <li class="card" data-carrera="software" data-nombre="thiago villanueva soto" style="animation-delay: 405ms">
+          <li class="card" data-carrera="software" data-nombre="Lucas Inga" style="animation-delay: 405ms">
             <article>
               <div class="card__media">
-                <img class="card__photo" src="assets/img/estudiantes/20-thiago-villanueva.svg"
-                     alt="Fotografia de Thiago Villanueva Soto" width="400" height="400" loading="lazy" decoding="async">
+                <img class="card__photo" src="assets/img/estudiantes/20-Lucas-Inga.jpeg"
+                     alt="Fotografia de Lucas Inga Marin" width="400" height="400" loading="lazy" decoding="async">
                 <span class="card__code">EST-2026-20</span>
               </div>
               <div class="card__body">
-                <h3 class="card__name">Thiago</h3>
-                <p class="card__lastname">Villanueva Soto</p>
+                <h3 class="card__name"> Lucas </h3>
+                <p class="card__lastname"> Inga </p>
                 <div class="card__meta">
                   <span class="tag">Software</span>
-                  <span class="tag tag--soft">Ciclo IV</span>
+                  <span class="tag tag--soft">Ciclo 4</span>
                 </div>
               </div>
             </article>
